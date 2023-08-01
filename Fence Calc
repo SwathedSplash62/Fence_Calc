@@ -1,0 +1,54 @@
+def num_check(question):
+    valid = False
+    while not valid:
+        error = "Please enter something that is more than zero"
+
+
+        try:
+
+            #ask user to enter a number
+            response = float(input(question))
+
+            #checks number is more than zero
+            if response > 0:
+                return response
+                print(error)
+                print()
+
+
+            #Outputs error if input is invalid
+            else:
+                print(error)
+                print()
+
+        except ValueError:
+                 print(error)
+                 print()
+
+#Main routine goes here
+print()
+print("**** Fence Problem Calculator ****")
+print()
+
+keep_going = ""
+while keep_going =="":
+
+    width = num_check("Width: ")
+    print(width)
+    height = num_check("Height: ")
+    print()
+    cost_per_m = num_check("Cost: ")
+    print()
+    print("Width", width)
+    print("Height", height)
+    print()
+    perimeter = width*2+height*2
+    cost = cost_per_m * perimeter
+    print()
+    print("Perimeter: {:.2f} units".format(perimeter))
+    print("Cost: ${:.2f} ".format(cost))
+    print()
+    keep_going = input("Press <enter> to keep going or any key to quit")
+
+print()
+print("Thanks for using the fence problem calculator")
